@@ -1,0 +1,14 @@
+# Verilator build output
+obj_dir/
+
+# Waveforms
+*.fst
+*.vcd
+
+# Yosys / nextpnr output
+*_synth.*
+*.asc
+*.bin
+
+# OS / editor
+.DS_Store
