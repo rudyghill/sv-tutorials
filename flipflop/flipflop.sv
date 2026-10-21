@@ -1,5 +1,5 @@
 // flipflop.sv
-// D flip-flop with asynchronous active-low reset and clock enable
+// D flip-flop with asynchronous active-low reset
 //
 // A flip-flop is the basic unit of memory in synchronous logic: it samples
 // its input D on the rising clock edge and holds that value on Q until the
@@ -7,12 +7,10 @@
 //
 // Priority (highest first):
 //   1. rst_n == 0  -> Q is forced to 0 immediately, clock or no clock
-//   2. en    == 0  -> Q holds its current value
-//   3. otherwise   -> Q takes D on the rising edge of clk
+//   2. otherwise   -> Q takes D on the rising edge of clk
 module flipflop (
     input  logic clk,
     input  logic rst_n,   // asynchronous, active-low reset
-    input  logic en,      // clock enable
     input  logic d,
     output logic q
 );
@@ -23,9 +21,8 @@ module flipflop (
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n)
             q <= 1'b0;
-        else if (en)
-            q <= d;   // non-blocking (<=): all flops update together at the edge
-        // no else branch: Q keeps its value, which is exactly what a flop does
+        else
+            q <= d;
     end
 
 endmodule
