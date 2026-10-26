@@ -5,6 +5,9 @@ obj_dir/
 *.fst
 *.vcd
 
+# Generated screenshots (make screenshots)
+img/
+
 # Yosys / nextpnr output
 *_synth.*
 *.asc
