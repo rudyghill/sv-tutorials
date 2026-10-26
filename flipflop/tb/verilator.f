@@ -1,7 +1,8 @@
 // verilator.f
 // Verilator configuration file
 // --- Source Files ---
-flipflop.sv
+// Paths are relative to tb/, where the Makefile runs verilator
+../design/flipflop.sv
 tb_flipflop.sv
 //lint.vlt
 

@@ -2,8 +2,8 @@
 
 Every module lives in its own top-level folder, laid out the same way so the
 same commands work everywhere. [`shiftregister/`](shiftregister/) is the
-reference: copy it when starting a new module. Older modules (`adder/`,
-`flipflop/`, `i2c/`) predate this layout and are being moved over.
+reference: copy it when starting a new module. `flipflop/` follows it too.
+Older modules (`adder/`, `i2c/`) predate this layout and are being moved over.
 
 ```
 <module>/
