@@ -5,8 +5,8 @@ obj_dir/
 *.fst
 *.vcd
 
-# Generated screenshots (make screenshots)
-img/
+# Kept outputs, e.g. artifacts/screenshots/ from make screenshots
+artifacts/
 
 # Yosys / nextpnr output
 *_synth.*

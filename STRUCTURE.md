@@ -18,11 +18,14 @@ Older modules (`adder/`, `i2c/`) predate this layout and are being moved over.
 │   ├── lint.vlt         Verilator lint waivers
 │   ├── obj_dir/         generated: Verilator build output
 │   └── <module>_waveform.fst   generated: sim waveform
-└── img/                 generated: screenshots
+└── artifacts/           generated outputs worth keeping
+    └── screenshots/     code images from `make screenshots`
 ```
 
-Generated files are gitignored (`obj_dir/`, `*.fst`, `img/`), so only the
-sources, the Makefile and the docs are committed.
+Generated files are gitignored (`obj_dir/`, `*.fst`, `artifacts/`), so only
+the sources, the Makefile and the docs are committed. `artifacts/` is the one
+place for outputs you want to keep around locally; `img/` is deliberately left
+free for committed documentation images.
 
 ## Setup
 
@@ -44,8 +47,8 @@ Run these from inside the module folder.
 | `make`             | Builds if a source changed, then always runs the sim |
 | `make build`       | Builds the sim without running it |
 | `make wave`        | Opens the waveform in GTKWave, running the sim first if there isn't one |
-| `make screenshots` | Writes `img/<module>_{full,ports,logic}.png` |
-| `make clean`       | Removes `tb/obj_dir/` and the waveform; leaves `img/` alone |
+| `make screenshots` | Writes `artifacts/screenshots/<module>_{full,ports,logic}.png` |
+| `make clean`       | Removes `tb/obj_dir/` and the waveform; leaves `artifacts/` alone |
 
 ## Conventions
 
@@ -77,7 +80,7 @@ on its arguments, so it can be copied into a new module unchanged.
 
 ## Starting a new module
 
-1. Copy `shiftregister/` to `<module>/`, then delete its `img/` and `tb/obj_dir/`.
+1. Copy `shiftregister/` to `<module>/`, then delete its `artifacts/` and `tb/obj_dir/`.
 2. Rename the `.sv` files and replace `shiftregister` with `<module>` in
    `Makefile`, `tb/verilator.f` and the testbench.
 3. Write the RTL and testbench, then run `make` until every check passes.

@@ -3,7 +3,7 @@
 #   make        build if needed, then run the sim (writes the waveform)
 #   make build  build the Verilator binary only
 #   make wave   run the sim if needed, then open the waveform in GTKWave
-#   make screenshots  render code images of the RTL into img/ with silicon
+#   make screenshots  render code images of the RTL into artifacts/screenshots/
 #   make clean  remove build output and the waveform
 #
 # Layout: design/ holds the RTL, tb/ holds the testbench and Verilator files.
@@ -48,8 +48,8 @@ wave: $(WAVE)
 # Highlight ranges are auto-detected; override with
 #   make screenshots PORT_LINES=1-7 LOGIC_LINES=8-15
 screenshots:
-	PORT_LINES=$(PORT_LINES) LOGIC_LINES=$(LOGIC_LINES) ./screenshots.sh $(RTL) img
+	PORT_LINES=$(PORT_LINES) LOGIC_LINES=$(LOGIC_LINES) ./screenshots.sh $(RTL) artifacts/screenshots
 
-# img/ is left alone: the screenshots are meant to be kept
+# artifacts/ is left alone: its outputs are meant to be kept
 clean:
 	rm -rf tb/obj_dir $(WAVE)

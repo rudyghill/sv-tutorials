@@ -8,7 +8,7 @@ clears all stages immediately.
 Layout
 - `design/` — the RTL (`shiftregister.sv`)
 - `tb/` — testbench and Verilator files; build output and the waveform land here
-- `img/` — generated screenshots (not committed)
+- `artifacts/` — kept outputs (not committed); `make screenshots` writes to `artifacts/screenshots/`
 
 Build and run the sim (writes `tb/shiftregister_waveform.fst`)
 ```sh
@@ -20,7 +20,7 @@ Open the waveform in gtkwaves
 make wave
 ```
 
-Render code screenshots of the RTL into `img/` with
+Render code screenshots of the RTL into `artifacts/screenshots/` with
 [silicon](https://github.com/Aloxaf/silicon): comments stripped, one full view,
 one with the ports highlighted and one with the logic highlighted. Highlight
 ranges are auto-detected; override with `PORT_LINES=` / `LOGIC_LINES=`.

@@ -3,7 +3,7 @@
 # Render teaching screenshots of an RTL file with silicon
 # (https://github.com/Aloxaf/silicon).
 #
-#   ./screenshots.sh <file.sv> [outdir]     (outdir defaults to img)
+#   ./screenshots.sh <file.sv> [outdir]     (outdir defaults to artifacts/screenshots)
 #
 # Comments are stripped first, so line 1 of every image is the first line of
 # code. Three images are written, all of the full stripped file:
@@ -22,7 +22,7 @@ LOGIC_LINES="${LOGIC_LINES:-}"
 SILICON_ARGS=(-l sv)
 
 src="${1:?usage: $0 <file.sv> [outdir]}"
-outdir="${2:-img}"
+outdir="${2:-artifacts/screenshots}"
 name="$(basename "${src%.*}")"
 
 command -v silicon >/dev/null || { echo "silicon not found: https://github.com/Aloxaf/silicon"; exit 1; }
