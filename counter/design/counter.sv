@@ -10,13 +10,16 @@
 module counter (
     input  logic       clk,
     input  logic       rst_n,   // asynchronous, active-low reset
-    output logic [7:0] count    // current count, 0..255
+    output logic [7:0] count,   // current count, 0..255
+    output logic       tc       // terminal count, when count gets to 255
 );
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n)
             count <= 8'b0;
         else begin
-            count <= count + 1;
+            count <= count + 8'b1;
         end
     end
+
+    assign tc = (count == 8'hFF);
 endmodule
